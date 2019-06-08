@@ -1,0 +1,34 @@
+<odoo>
+  <data>
+    <record id="customize_report_invoice.view_form_res_partner_add_field_agente_retencion" model="ir.ui.view">
+        <field name="name">view.form.res.partner.add.field.agente.retencion</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="after">
+              <field name="agente_de_retencion"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="customize_report_invoice.view_form_account_invoice_add_fields" model = "ir.ui.view">
+      <field name="name">view.form.form.account.invoice.add.fields</field>
+      <field name="model">account.invoice</field>
+      <field name="inherit_id" ref="account.invoice_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='amount_tax']" position="after">
+          <field name="amount_iva_retenido"  />
+        </xpath>
+        <xpath expr="//field[@name='comment']" position="before">
+          <label for="amount_total_word" string="Son: "/>
+          <field name="amount_total_word" />
+        </xpath>
+        <xpath expr="//field[@name='partner_id']" position="after">
+          <field name="afecto_a_retencion"/>
+        </xpath>
+      </field>
+    </record>
+    
+  </data>
+</odoo>

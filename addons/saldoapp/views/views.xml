@@ -1,0 +1,67 @@
+<odoo>
+  <data>
+    
+    <!--
+    Model:ir.ui.view
+        -> name
+        -> fecha
+        -> monto
+    -->
+    <record id="saldoapp.view_form_movimiento" model="ir.ui.view">
+      <field name="name">view.form.movimiento</field>
+      <field name="model">sa.movimiento</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <group>
+                <field name="descripcion"/>
+                <field name="fecha"/>
+              </group>
+              <group>
+                <field name="tipo" required="1"/>
+                <field name="monto"/>
+              </group>
+            </group>
+            <group string="Datos Generales">
+              <field name="numero_comprobante" string="N° Comprobante"/>
+              <field name="foto_comprobante" string="Foto de Comprobante"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="saldoapp.view_tree_movimiento" model="ir.ui.view">
+      <field name="name">view.tree.movimiento</field>
+      <field name="model">sa.movimiento</field>
+      <field name="arch" type="xml">
+      <!--
+        editable - > top - bottom
+      -->
+        <tree decoration-success="tipo == 'ingreso'" decoration-warning="tipo=='egreso'"> 
+          <field name="fecha"/>
+          <field name="descripcion"/>
+          <field name="tipo"/>
+          <field name="monto"/>
+        </tree>
+      </field>
+    </record>
+    <!--
+    Model:ir.actions.act_window
+        -> name
+        -> res_model
+        -> view_mode
+    -->
+    <record id="saldoapp.action_view_movimiento" model="ir.actions.act_window">
+      <field name="name">Mis Movimientos</field>
+      <field name="res_model">sa.movimiento</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem string="Saldo APP" name="Saldo APP" id="saldoapp.menu_principal_saldoapp" parent=""/>
+
+    <menuitem string="Movimientos" name="Movimientos" id="saldoapp.menu_movimiento" parent="saldoapp.menu_principal_saldoapp"
+              action="saldoapp.action_view_movimiento"/>
+  </data>
+</odoo>

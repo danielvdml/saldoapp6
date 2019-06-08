@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_prepago_app_prepago_app,prepago_app.prepago_app,model_prepago_app_prepago_app,,1,0,0,0
