@@ -26,6 +26,7 @@ class Movimiento(models.Model):
 
     currency_id = fields.Many2one("res.currency",string="Moneda",default=_default_monetary)
 
+    state = fields.Selection(selection=[('borrador','Borrador'),('validado','Validado')],default="borrador")
     
 
     monto = fields.Monetary(string="Monto",currency="currency_id")
@@ -38,3 +39,7 @@ class Movimiento(models.Model):
     usuario_id = fields.Many2one("sa.usuario",string="Usuario")
     res_user_id = fields.Many2one("res.users",string="Usuario")
     
+
+    def validar_movimiento(self):
+        for record in self:
+            record.state = "validado"

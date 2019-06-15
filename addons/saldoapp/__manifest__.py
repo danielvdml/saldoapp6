@@ -27,6 +27,8 @@
         'views/perfil.xml',
         'views/views.xml',
         'views/templates.xml',
+        'actions_server/validar_movimiento.xml',
+        'security/res_groups.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
