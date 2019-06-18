@@ -36,7 +36,7 @@
             <group string="Datos Generales">
               <field name="numero_comprobante" string="N° Comprobante" attrs="{'readonly':[('state','=','validado')]}"/>
               <field name="foto_comprobante" string="Foto de Comprobante" attrs="{'readonly':[('state','=','validado')]}"/>
-              <!--<field name="usuario_id"/>-->
+              <field name="res_user_id" groups="saldoapp.group_administrador"/>
               <field name="res_user_id" invisible="1"/>
             </group>
           </sheet>
@@ -56,7 +56,7 @@
           <field name="descripcion"/>
           <field name="tipo" invisible = "1"/>
           <!--<field name="usuario_id"/>-->
-          <field name="res_user_id"/>
+          <field name="res_user_id" groups="saldoapp.group_administrador"/>
           <field name="currency_id" invisible="1"/>
           <field name="monto" options="{'currency_field': 'currency_id'}"/>
           <field name="state" string="Estado"/>

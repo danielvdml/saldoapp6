@@ -10,9 +10,9 @@
         <record id="saldoapp.group_administrador" model="res.groups">
             <field name="name">Administrador</field>
             <field name="category_id" ref="saldoapp.category_saldoapp"/>
+            <field name="menu_access" eval="[(4,ref('saldoapp.menu_movimiento')),(4,ref('saldoapp.menu_mi_perfil'))]"/>
         </record>
-        
-        
+            
         <record id="saldoapp.access_model_movimiento_administrador" model="ir.model.access">
             <field name="name">access.model.movimiento.administrador</field>
             <field name="model_id" ref="saldoapp.model_sa_movimiento"/>
@@ -29,7 +29,48 @@
         <record id="saldoapp.group_usuario" model="res.groups">
             <field name="name">Usuario</field>
             <field name="category_id" ref="saldoapp.category_saldoapp"/>
+            <field name="menu_access" eval="[(4,ref('saldoapp.menu_movimiento')),(4,ref('saldoapp.menu_mi_perfil'))]"/>
         </record>
 
+        <record id="saldoapp.access_model_movimiento_usuario" model="ir.model.access">
+            <field name="name">access.model.movimiento.administrador</field>
+            <field name="model_id" ref="saldoapp.model_sa_movimiento"/>
+            <field name="group_id" ref="saldoapp.group_usuario"/>
+            <field name="perm_read" eval="True" />
+            <field name="perm_create" eval="True" />
+            <field name="perm_write" eval="True" />
+            <field name="perm_unlink" eval="True" />
+            <field name="active" eval="True" />
+        </record>
+
+
+
+            <!--Rol: Grupo Usuario - Reglas de Acceso-->
+
+            <record id="saldoapp.movimiento_rule_state_borrador" model="ir.rule">
+                <field name="name">saldoapp.movimiento.rule.sate.borrador</field>
+                <field name="model_id" ref="saldoapp.model_sa_movimiento"/>
+                <field name="global" eval="False" />
+                <field name="perm_read" eval="True" />
+                <field name="perm_create" eval="True" />
+                <field name="perm_write" eval="True" />
+                <field name="perm_unlink" eval="True" />
+                <field name="domain_force">[('create_uid','=',user.id),('state','=','borrador')]</field>
+                <field name="active" eval="True" />
+                <field name="groups" eval="[(4,ref('saldoapp.group_usuario'))]"/>
+            </record>
+            
+            <record id="saldoapp.movimiento_rule_state_validado" model="ir.rule">
+                <field name="name">saldoapp.movimiento.rule.sate.validado</field>
+                <field name="model_id" ref="saldoapp.model_sa_movimiento"/>
+                <field name="global" eval="False" />
+                <field name="perm_read" eval="True" />
+                <field name="perm_create" eval="False" />
+                <field name="perm_write" eval="False" />
+                <field name="perm_unlink" eval="False" />
+                <field name="domain_force">[('create_uid','=',user.id),('state','=','validado')]</field>
+                <field name="active" eval="True" />
+                <field name="groups" eval="[(4,ref('saldoapp.group_usuario'))]"/>
+            </record>
     </data>
 </odoo>

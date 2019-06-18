@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <report
+            id="saldoapp.sa_report_movmiento"
+            model="sa.movimiento"
+            string="Movimientos"
+            report_type="qweb-pdf"
+            name="saldoapp.report_movimiento"
+        />
+                
+
+    </data>
+</odoo>

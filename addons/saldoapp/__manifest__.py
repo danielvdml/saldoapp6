@@ -27,6 +27,8 @@
         'views/perfil.xml',
         'views/views.xml',
         'views/templates.xml',
+        'report/report_movimiento.xml',
+        'report/reports.xml',
         'actions_server/validar_movimiento.xml',
         'security/res_groups.xml'
     ],

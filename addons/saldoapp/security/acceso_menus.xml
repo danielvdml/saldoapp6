@@ -1,0 +1,24 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!--Permisos para Acceder a Menús-->
+        <!--Actualizando el campo groups_id (inicialmente estaba vacío)-->
+        <!--groups_id es un campo de ir.ui.menu-->
+        <!--Actualizar el campo con grupos de usuario-->
+        <!--
+        <record id="saldoapp.menu_principal_saldoapp" model="ir.ui.menu">
+            <field name="groups_id" eval="False"/>
+        </record>
+
+        <record id="saldoapp.menu_movimiento" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('saldoapp.group_usuario')),(4,ref('saldoapp.group_administrador'))]"/>
+        </record>
+
+        <record id="saldoapp.menu_mi_perfil" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('saldoapp.group_usuario')),(4,ref('saldoapp.group_administrador'))]"/>
+        </record>
+        -->
+    </data>
+</odoo>
