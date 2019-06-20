@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data noupdate="0">
+        <!--Crea una acción de tipo reporte-->
+        <!--report - > ir.actions.report-->
         <report
             id="saldoapp.sa_report_movmiento"
             model="sa.movimiento"

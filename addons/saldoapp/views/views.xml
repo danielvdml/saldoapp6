@@ -34,10 +34,20 @@
               </group>
             </group>
             <group string="Datos Generales">
-              <field name="numero_comprobante" string="N° Comprobante" attrs="{'readonly':[('state','=','validado')]}"/>
-              <field name="foto_comprobante" string="Foto de Comprobante" attrs="{'readonly':[('state','=','validado')]}"/>
-              <field name="res_user_id" groups="saldoapp.group_administrador"/>
-              <field name="res_user_id" invisible="1"/>
+              <group>
+                <field name="numero_comprobante" string="N° Comprobante" attrs="{'readonly':[('state','=','validado')]}"/>
+                <!--Agregación de atributo que declara al campo foto_comprobante como una imagen-->
+                <field name="foto_comprobante" 
+                      string="Foto de Comprobante" 
+                      attrs="{'readonly':[('state','=','validado')]}"
+                      widget="image"
+                      options="{'class':'img img-responsive','style':'width:100px'}"
+                      />
+              </group>
+              <group>
+                <field name="res_user_id" groups="saldoapp.group_administrador"/>
+                <field name="res_user_id" invisible="1"/>
+              </group>
             </group>
           </sheet>
         </form>
