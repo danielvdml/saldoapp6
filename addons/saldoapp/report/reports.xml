@@ -11,6 +11,12 @@
             name="saldoapp.report_movimiento"
         />
                 
-
+        <report
+            id="saldoapp.sa_report_movimiento_consolidado"
+            model="res.partner"
+            string="Consolidado de Movimientos"
+            report_type="qweb-pdf"
+            name="saldoapp.report_movimiento_consolidado"
+        />
     </data>
 </odoo>

@@ -9,6 +9,7 @@
             </xpath>
         </template>
 
+        
         <template id="saldoapp.external_layout_custom_fullstack">
             <div class="header">
                 <div class="o_clean_header o_fullstack_header">
@@ -53,8 +54,6 @@
                 </div>
             </div>
         </template>
-
-
 
         <!--Template -> ir.ui.view  tipo: qweb-->
         <template id="saldoapp.report_movimiento">

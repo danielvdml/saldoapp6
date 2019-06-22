@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <template id="saldoapp.report_movimiento_consolidado">
+            <!--web.html_container llama a los assets css de Bootstrap -->
+            <!--También podemos crear nuevos estilos y por medio de web.html_container se va utilizar -->
+            <t t-call="web.html_container"> 
+                <!--docs es una variable con un conjunto de elementos de tipo sa.movimiento-->
+                <!--docs = [sa.movimiento(2),sa.movimiento(3),sa.movimiento(4),sa.movimiento(10)]-->
+                <!--docs puede contener desde solo 1 registro a muchos registros-->
+                <t t-foreach="partners" t-as="partner_dict">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h3><t t-esc="titulo"/></h3>
+                            <!--o es un elemento de la lista de objetos de docs-->
+                            <!--o.name es un aatributo del objeto o-->
+                            <!--t-fields solo se puede usar para atributos de objetos-->
+                           <h1><b>Usuario:</b> <span t-field="partner_dict['obj'].name"/> </h1>
+                           <h5><b>Ingresos:</b> <t t-esc="partner_dict['ingresos']"></t></h5> 
+                           <h5><b>Egresos:</b> <t t-esc="partner_dict['egresos']"></t></h5> 
+                            <h5><b>Ejecutando nueva función:<t t-esc="funcionx('Daniel Moreno')"></t></b></h5>
+                            <t t-if="partner_dict['ingresos']&lt;400">
+                                <span>Tus ingresos an superado los 400 soles</span>
+                            </t>
+                            <t t-if="partner_dict['ingresos']&gt;800 and partner_dict['ingresos']&lt;1000">
+                                <span>Tus ingresos an superado los 800 soles</span>
+                            </t>
+                            <t t-set="x" t-value="partner_dict['ingresos']"/>
+                            <t t-set="y" t-value="partner_dict['egresos']"/>
+                            <t t-set="resultado" t-value="x-y"/>
+                            <t t-esc="resultado"/>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+
+    </data>
+</odoo>
