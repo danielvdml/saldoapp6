@@ -11,6 +11,17 @@ class Movimiento(models.Model):
     descripcion = fields.Char(string="Descripción",required=True)
     fecha = fields.Date(string="Fecha")
 
+    #self -> registro ids = 32,33,34,43
+    def saludo(self,nombre,apellido):
+        s = ""
+        for record in self:
+            s+=record.descripcion+"      "
+        return {"msg":"Hola Mundo {} {} - {}".format(nombre,apellido,s)}
+
+    def get_movimientos_por_usuario(self,user_id):
+        return self.env["sa.movimiento"].sudo().search_read([["create_uid","=",user_id]])
+
+
     def _default_monetary(self):
         usuario_id = self.env.uid
         usuario_obj = self.env["res.users"].search([("id","=",usuario_id)])
@@ -39,7 +50,9 @@ class Movimiento(models.Model):
     usuario_id = fields.Many2one("sa.usuario",string="Usuario")
     res_user_id = fields.Many2one("res.users",string="Usuario")
     
+    
 
+    
     def validar_movimiento(self):
         for record in self:
             record.state = "validado"
