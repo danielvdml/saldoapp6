@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!-- Contract View -->
+	<record id="hr_contract_chile_view" model="ir.ui.view">	
+            <field name="name">hr.contract.peru.view</field>	
+            <field name="model">hr.contract</field>	
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>	
+            <field name="arch" type="xml">	
+            	<field name="wage" position="after">
+            		<field name="carga_familiar" string="Asig. Familiar"/>
+		        </field>	
+ 
+                <group name="salary_and_advantages" position="after">	
+			        <group col="3" string="Descuentos"> 
+			            <field name="afp_id" string="AFP" required="1"/>
+			            <field name="tipo_comision" string="Tipo de Comisión"/>
+			            <field name="aporte_voluntario" string="Aporte Voluntario"/>
+			            <field name="anticipo_sueldo"/>
+			        </group>
+                </group>
+                <field name="type_id" position="replace">
+                    <field name="type_id" select="3"/>
+            </field>
+            </field>
+    </record>	
+
+    <record id="hr_contract_view_tree_inherit_l10n_lv_hr" model="ir.ui.view">
+        <field name="name">hr.contract.view.tree.inherit.l10n</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="employee_id" position="replace">
+                <field name="complete_name"/>
+            </field>          
+        </field>
+     </record>
+</odoo>
+
+
+  
+                    
+  
+
+
+
+
+
+
+

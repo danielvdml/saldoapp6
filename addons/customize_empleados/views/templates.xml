@@ -1,0 +1,97 @@
+<odoo>
+    <data>
+        <!-- <template id="listing"> -->
+        <!--   <ul> -->
+        <!--     <li t-foreach="objects" t-as="object"> -->
+        <!--       <a t-attf-href="#{ root }/objects/#{ object.id }"> -->
+        <!--         <t t-esc="object.display_name"/> -->
+        <!--       </a> -->
+        <!--     </li> -->
+        <!--   </ul> -->
+        <!-- </template> -->
+        <!-- <template id="object"> -->
+        <!--   <h1><t t-esc="object.display_name"/></h1> -->
+        <!--   <dl> -->
+        <!--     <t t-foreach="object._fields" t-as="field"> -->
+        <!--       <dt><t t-esc="field"/></dt> -->
+        <!--       <dd><t t-esc="object[field]"/></dd> -->
+        <!--     </t> -->
+        <!--   </dl> -->
+        <!-- </template> -->
+
+        <!--Esta plantilla se almacena dentro de ir.ui.view -> y es un tipo de vista qweb-->
+        <template id="customize_empleados.lista_clientes">
+            <html lang="en">
+                <head>
+                    <meta charset="UTF-8"/>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+                    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+                    <title>Document</title>
+                </head>
+                <body>
+                    <h1>Lista de Clientes</h1>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                            <th scope="col">RUC</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Teléfono</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="clientes" t-as="cliente">
+                                <tr>
+                                    <th scope="row"><t t-esc="cliente.ruc"/></th>
+                                    <td><t t-esc="cliente.name"/></td>
+                                    <td><t t-esc="cliente.email"/></td>
+                                    <td><t t-esc="cliente.phone"/></td>
+                                </tr>
+                            </t>
+                            
+                        </tbody>
+                    </table>  
+                </body>
+            </html>
+        </template>
+
+
+        <template id="customize_empleados.lista_clientes_otra_plantilla">
+            <html lang="en">
+                <head>
+                    <meta charset="UTF-8"/>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+                    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+                    <title>Document</title>
+                </head>
+                <body>
+                    <h1>Lista de Clientes</h1>
+                    <h2>Esta es otra Plantilla</h2>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                            <th scope="col">RUC</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Teléfono</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="clientes" t-as="cliente">
+                                <tr>
+                                    <th scope="row"><t t-esc="cliente.ruc"/></th>
+                                    <td><t t-esc="cliente.name"/></td>
+                                    <td><t t-esc="cliente.email"/></td>
+                                    <td><t t-esc="cliente.phone"/></td>
+                                </tr>
+                            </t>
+                            
+                        </tbody>
+                    </table>  
+                </body>
+            </html>
+        </template>
+    </data>
+</odoo>

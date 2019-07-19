@@ -1,0 +1,46 @@
+<odoo>
+  <data>
+    
+    <!--ir.ui.view es la tabla donde se almacenan todas las vistas-->
+    <record id="customize_empleados.view_form_add_field_ruc" model="ir.ui.view">
+      <field name="name">customize_empleados.view.form.add.field.ruc</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+        <!--
+          inside:dentro de la etiqueta de referencia
+          after:después de la etiqueta de referencia
+          before: antes de la etiqueta de referencua
+          replace: replamzar a la etiqueta de referencia
+          attributes: agrega o cambia los atributos de la etiqueta de referencia
+        -->
+        
+        <xpath expr="//field[@name='vat']" position="after">
+          <field name="ruc"/>
+        </xpath>
+
+        <!--Agrega el campo fecha_cumple antes del campo function-->
+        <xpath expr="//field[@name='function']" position="before">
+          <field name="fecha_cumple"/>
+        </xpath>
+
+        <!--reemplaza el campo category_id por un vacío-->
+        <xpath expr="//field[@name='category_id']" position="replace">
+          <span>Category_id ya no se encuentra disponible</span>
+        </xpath>
+
+        <!--El email es obligatorio-->
+        <xpath expr="//field[@name='email']" position="attributes">
+          <attribute name="required">True</attribute>
+        </xpath>
+
+        <!--El teléfono es obligatorio-->
+        <xpath expr="//field[@name='phone']" position="attributes">
+          <attribute name="required">1</attribute>
+        </xpath>
+  
+      </field>
+    </record>
+
+  </data>
+</odoo>

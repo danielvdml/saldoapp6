@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_customize_empleados_customize_empleados,customize_empleados.customize_empleados,model_customize_empleados_customize_empleados,,1,0,0,0
